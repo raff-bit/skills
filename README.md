@@ -20,7 +20,7 @@ I'm a software engineering student. These skills are how I work with AI agents: 
 
 | Hook | Event | What it does |
 |---|---|---|
-| [`require-tests.sh`](hooks/require-tests.sh) | `Stop` | Claude can't finish its turn while the project's tests fail. The failures go back to Claude to fix, with one forced retry before a human takes over, so it can't loop forever. Turn it on per repo, with that repo's test command. |
+| [`commit-gate.sh`](hooks/commit-gate.sh) | `PreToolUse` | Claude can't `git commit` while the project's tests fail; the failures go back to Claude to fix. It gates *commits*, not turns, so the TDD Red step (ending on a failing test) still works. Turn it on per repo, with that repo's test command. |
 
 ## Install
 
@@ -40,13 +40,13 @@ ln -s "<path-to-this-repo>/skills/real-engineer-workflow" ~/.claude/skills/real-
 
 Personal skills load in every project. Check it worked by starting `claude` and typing `/real`; the skill should autocomplete.
 
-**Agents and hooks:** link the whole folders the same way, to `~/.claude/agents` and `~/.claude/hooks`. To turn the Stop hook on in a repo, add this to that repo's `.claude/settings.json`, with its own test command:
+**Agents and hooks:** link the whole folders the same way, to `~/.claude/agents` and `~/.claude/hooks`. To turn the commit gate on in a repo, add this to that repo's `.claude/settings.json`, with its own test command:
 ```json
 {
   "hooks": {
-    "Stop": [ { "hooks": [ {
+    "PreToolUse": [ { "matcher": "Bash|PowerShell", "hooks": [ {
       "type": "command",
-      "command": "bash ~/.claude/hooks/require-tests.sh 'npm test'",
+      "command": "bash ~/.claude/hooks/commit-gate.sh 'npm test'",
       "timeout": 300
     } ] } ]
   }

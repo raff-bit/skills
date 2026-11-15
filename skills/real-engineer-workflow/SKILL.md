@@ -46,10 +46,12 @@ Present the breakdown and wait for the user's approval.
 - Green: write the minimum code that makes it pass.
 - Refactor: clean up while the tests stay green.
 - Tests and typecheck (and lint, if configured) gate every commit. Never call something done without running them.
+- If the repo enables the `commit-gate` hook, a commit with red tests is blocked automatically. Fix the code, never the tests. In the Red step, don't commit at all: show the failing test and stop.
 - The commit message records what changed, the key decisions and notes for the next ticket. Then move the ticket to `issues/done/`.
 
 ## Phase 5: Review
 Check the diff against the acceptance criteria and spec, CONTEXT.md vocabulary, code smells, edge-case test coverage and module depth. Report findings most severe first. The user decides what gets fixed.
+- When the `reviewer` sub-agent is available, delegate the review to it. It starts with fresh context, so the code isn't graded by the same context that wrote it. Then relay its findings and give your own verdict on each one.
 
 ## Phase 6: Handoff and retro
 - When the context is getting long or a ticket ends, write a handoff note so a fresh session can continue. It covers status, decisions made, open questions, the next ticket and paths to the artifacts. Fresh sessions beat one long thread, because quality drops as context grows.
