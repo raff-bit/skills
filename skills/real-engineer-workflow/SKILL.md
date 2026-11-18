@@ -54,8 +54,8 @@ Check the diff against the acceptance criteria and spec, CONTEXT.md vocabulary, 
 - When the `reviewer` sub-agent is available, delegate the review to it. It starts with fresh context, so the code isn't graded by the same context that wrote it. Then relay its findings and give your own verdict on each one.
 
 ## Phase 6: Handoff and retro
-- When the context is getting long or a ticket ends, write a handoff note so a fresh session can continue. It covers status, decisions made, open questions, the next ticket and paths to the artifacts. Fresh sessions beat one long thread, because quality drops as context grows.
-- Learning retro: append 2 to 4 lines to `docs/learning-log.md` covering one concept learned, one mistake caught and why it happened, and one thing to try next time.
+- When the context is getting long or a ticket ends, suggest that the user run `/handoff`. That skill writes the handoff note (where we stopped, next steps, decisions, what was learnt) so a fresh session can continue. Don't write one unasked. Fresh sessions beat one long thread, because quality drops as context grows.
+- Learning retro: append 2 to 4 lines to `docs/learning-log.md` covering one concept learned, one mistake caught and why it happened, and one thing to try next time. If `/handoff` ran this session, its one-line log entry replaces this retro, because the detail is in the handoff.
 
 ## Standing rules
 - Never skip the grill because a request seems clear.

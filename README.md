@@ -9,6 +9,7 @@ I'm a software engineering student. These skills are how I work with AI agents: 
 | Skill | What it does |
 |---|---|
 | [`real-engineer-workflow`](skills/real-engineer-workflow/SKILL.md) | Runs a whole project or feature as **grill → spec → vertical-slice tickets → TDD → review → retro**, in *learning mode*: the agent asks for my reasoning before it gives its own, so I learn the decisions instead of just accepting them. |
+| [`handoff`](skills/handoff/SKILL.md) | Ends a session with a note that a fresh session, or a friend, can continue from: where we stopped, the exact next steps and the decisions, plus a **what I learnt** section with the session's main themes that I can come back to later. Run it with `/handoff`. |
 
 ## Agents
 
@@ -62,6 +63,7 @@ The workflow is adapted from **Matt Pocock's [Skills For Real Engineers](https:/
 - **One skill, start to finish.** The grill → spec → tickets → TDD → review → retro pipeline lives in a single skill I start at the beginning of every project.
 - **Learning mode.** For decisions I can reason about, the agent asks what I'd pick and why *before* recommending, then compares the two answers and explains the difference.
 - **USER-DRIVES tickets.** At least one substantial ticket per project is written by me, with the agent giving hints and reviewing, so I keep coding skills and don't only review.
+- **Handoff as a learning record.** Matt's `handoff` is a note in transit, saved to the temp folder. Mine is kept: besides where we stopped and what's next, it has a section on what I learnt and the session's themes, and the project's learning log links to it.
 - **A learning log.** Every retro appends a concept learned, a mistake caught and why it happened, and one thing to try next time.
 
 ### How this was made
